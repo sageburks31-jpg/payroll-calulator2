@@ -7,10 +7,11 @@ import java.util.*;
 public class Main {
     static FileReader fileReader;
     static List<Employee> employeesList = new ArrayList<>();
+    static Scanner scanner = new Scanner(System.in);
 
     public static void write() {
         try {
-            FileWriter writer = new FileWriter("employees.csv");
+            FileWriter writer = new FileWriter("employees.txt");
             writer.write("id|name|hours-worked|pay-rate\n");
             for (Employee employee: employeesList) {
                 writer.write(employee.toRow());
@@ -27,9 +28,8 @@ public class Main {
             fileReader = new FileReader("employees.csv");
             BufferedReader bufReader = new BufferedReader(fileReader);
             String line;
-            Employee employee = new Employee();
-
             while ((line = bufReader.readLine()) != null) {
+                Employee employee = new Employee();
                 System.out.println(line);
                 String[] textSheet = line.split(Pattern.quote("|"));
 
@@ -61,17 +61,31 @@ public class Main {
         read();
         printEmployeeCard();
         printEmployeeRow();
+        String answer="false";
+        while (answer.equals("false")) {
+            System.out.print("do you wish to write this (Y/N): ");
+            answer = scanner.nextLine().toLowerCase();
+            if (answer.equals("y") || answer.equals("n")){
+                if (answer.equals("y")) {
+                    System.out.println("writing file");
+                    write();
+                }
+            } else {
+                System.out.println("Error invalid input");
+                answer = "false";
+            }
+        }
     }
 
     private static void printEmployeeRow() {
         for (Employee employee: employeesList){
-            System.out.println(employee.toRow());
+            System.out.printf("%n" + employee.toRow());
         }
     }
 
     private static void printEmployeeCard() {
         for (Employee employee: employeesList){
-            System.out.println(employee.toCard());
+            System.out.printf(employee.toCard());
         }
     }
 }

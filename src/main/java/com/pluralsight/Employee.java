@@ -41,18 +41,15 @@ public class Employee {
     public double getGrossPay(double payRate, double hoursWorked){return payRate*hoursWorked;}
 
     public String toRow() {
-        return getEmployeeId()+"|"+getName()+"|"+getHoursWorked()+"|"+getPayRate();}
+        return getEmployeeId()+"|"+getName()+"|"+getGrossPay(hoursWorked,payRate);}
 
     public String toCard() {return String.format("""
-            __________________________
-            |                        |
+            ____________________________
+            |                          |
             | employee ID - %d
             | employee name - %s
-            | employee hoursWorked - %.2f
-            | employee payRate - %.2f
             | employee GrossPay - %.2f
-            |________________________|
+            |__________________________|
             """,getEmployeeId(),
-            getName(),getHoursWorked(),
-            getPayRate(),getGrossPay(hoursWorked,payRate));}
+            getName(),getGrossPay(hoursWorked,payRate));}
 }
