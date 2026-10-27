@@ -18,7 +18,7 @@ public class Main {
 
             for (Employee employee: employees) {
 
-                if (!employee.isEmployeeExist()) {
+                if (employee.isEmployeeExist()) {
 
                     while ((line = bufReader.readLine()) != null) {
                         isFull = false;
@@ -59,10 +59,14 @@ public class Main {
     }
 
     private static void printEmployeeRow() {
-
+        for (Employee employee: employees){
+            System.out.println(employee.toRow());
+        }
     }
 
     private static void printEmployeeCard() {
-
+        for (Employee employee: employees){
+            System.out.println(employee.toCard());
+        }
     }
 }

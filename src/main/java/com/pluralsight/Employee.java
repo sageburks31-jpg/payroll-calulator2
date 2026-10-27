@@ -18,55 +18,30 @@ public class Employee {
         this.employeeExist=true;
     }
 
-    public int getEmployeeId() {
-        return employeeId;
-    }
+    public int getEmployeeId() {return employeeId;}
 
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
-    }
+    public void setEmployeeId(int employeeId) {this.employeeId = employeeId;}
 
-    public String getName() {
-        return name;
-    }
+    public String getName() {return name;}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name) {this.name = name;}
 
-    public double getHoursWorked() {
-        return hoursWorked;
-    }
+    public double getHoursWorked() {return hoursWorked;}
 
-    public void setHoursWorked(double hoursWorked) {
-        this.hoursWorked = hoursWorked;
-    }
+    public void setHoursWorked(double hoursWorked) {this.hoursWorked = hoursWorked;}
 
-    public double getPayRate() {
-        return payRate;
-    }
+    public double getPayRate() {return payRate;}
 
-    public boolean isEmployeeExist() {
-        return employeeExist;
-    }
+    public boolean isEmployeeExist() {return employeeExist;}
 
-    public void setEmployeeExist(boolean employeeExist) {
-        this.employeeExist = employeeExist;
-    }
+    public void setEmployeeExist(boolean employeeExist) {this.employeeExist = employeeExist;}
 
-    public void setPayRate(double payRate) {
-        this.payRate = payRate;
-    }
+    public void setPayRate(double payRate) {this.payRate = payRate;}
 
-    public double getGrossPay(double payRate, double hoursWorked){
-        return payRate*hoursWorked;
-    }
+    public double getGrossPay(double payRate, double hoursWorked){return payRate*hoursWorked;}
 
     public String toRow() {
-        return "";
-    }
+        return getEmployeeId()+"|"+getName()+"|"+getHoursWorked()+"|"+getPayRate();}
 
-    public String toCard() {
-        return "";
-    }
+    public String toCard() {return "";}
 }
