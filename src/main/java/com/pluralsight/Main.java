@@ -6,47 +6,37 @@ import java.util.*;
 
 public class Main {
     static FileReader fileReader;
-    static Employee[] employees = {new Employee(), new Employee(), new Employee(),
-            new Employee(), new Employee(), new Employee(), new Employee(),
-            new Employee()};
+    static List<Employee> employeesList = new ArrayList<>();
 
     public static void read() {
         try {
             fileReader = new FileReader("employees.csv");
             BufferedReader bufReader = new BufferedReader(fileReader);
             String line;
-            boolean isFull = true;
+            Employee employee = new Employee();
 
-            for (Employee employee: employees) {
+            while ((line = bufReader.readLine()) != null) {
+                System.out.println(line);
+                String[] textSheet = line.split(Pattern.quote("|"));
 
-                if (employee.isEmployeeExist()) {
+                for (String text : textSheet) {System.out.println(text);}
+                if (line.equals("id|name|hours-worked|pay-rate")) {continue;}
 
-                    while ((line = bufReader.readLine()) != null) {
-                        isFull = false;
-                        System.out.println(line);
-                        String[] textSheet = line.split(Pattern.quote("|"));
+                int id = Integer.parseInt(textSheet[0]);
+                String name = textSheet[1];
+                double hoursWorked = Double.parseDouble(textSheet[2]);
+                double payRate = Double.parseDouble(textSheet[2]);
 
-                        for (String text : textSheet) {System.out.println(text);}
-                        if (line.equals("id|name|hours-worked|pay-rate")) {continue;}
-
-                        int id = Integer.parseInt(textSheet[0]);
-                        String name = textSheet[1];
-                        double hoursWorked = Double.parseDouble(textSheet[2]);
-                        double payRate = Double.parseDouble(textSheet[2]);
-
-                        employee.setEmployeeExist(true);
-                        employee.setEmployeeId(id);
-                        employee.setName(name);
-                        employee.setHoursWorked(hoursWorked);
-                        employee.setPayRate(payRate);
-                    }
-                }
+                employee.setEmployeeExist(true);
+                employee.setEmployeeId(id);
+                employee.setName(name);
+                employee.setHoursWorked(hoursWorked);
+                employee.setPayRate(payRate);
+                employeesList.add(employee);
             }
-            for (Employee employee: employees) {
-                if (!employee.isEmployeeExist()) {System.out.println(employee);}
+            for (Employee employed: employeesList) {
+                if (!employed.isEmployeeExist()) {System.out.println(employed);}
             }
-            if (isFull) {System.out.print("register is full");}
-            bufReader.close();
         }
         catch(IOException e) {
             System.out.print("java.io.FileNotFoundException: employes.csv (No such file or directory)\n");
@@ -60,13 +50,13 @@ public class Main {
     }
 
     private static void printEmployeeRow() {
-        for (Employee employee: employees){
+        for (Employee employee: employeesList){
             System.out.println(employee.toRow());
         }
     }
 
     private static void printEmployeeCard() {
-        for (Employee employee: employees){
+        for (Employee employee: employeesList){
             System.out.println(employee.toCard());
         }
     }
