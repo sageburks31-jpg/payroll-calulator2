@@ -61,7 +61,7 @@ public class Main {
         read();
         printEmployeeCard();
         printEmployeeRow();
-        String answer="false";
+        String answer = "false";
         while (answer.equals("false")) {
             System.out.print("do you wish to write this (Y/N): ");
             answer = scanner.nextLine().toLowerCase();
