@@ -8,6 +8,20 @@ public class Main {
     static FileReader fileReader;
     static List<Employee> employeesList = new ArrayList<>();
 
+    public static void write() {
+        try {
+            FileWriter writer = new FileWriter("employees.csv");
+            writer.write("id|name|hours-worked|pay-rate\n");
+            for (Employee employee: employeesList) {
+                writer.write(employee.toRow());
+            }
+            writer.close();
+        }
+        catch (IOException e) {
+            System.out.println("ERROR: An unexpected error occurred");
+        }
+    }
+
     public static void read() {
         try {
             fileReader = new FileReader("employees.csv");
