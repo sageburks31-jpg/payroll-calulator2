@@ -1,0 +1,9 @@
+id|name|GrossPay
+10|Dana Wyatt|2756.25
+20|Ezra Aiden|289.0
+30|Brittany Thibbs|1600.0
+40|Zephaniah Hughes|4.0
+50|Caylee Callahan|1225.0
+60|Zane Stephens|2025.0
+70|Maverick Cummings|650.25
+80|Kamari Todd|1024.0

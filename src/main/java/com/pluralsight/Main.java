@@ -12,9 +12,9 @@ public class Main {
     public static void write() {
         try {
             FileWriter writer = new FileWriter("employees.txt");
-            writer.write("id|name|hours-worked|pay-rate\n");
+            writer.write("id|name|GrossPay\n");
             for (Employee employee: employeesList) {
-                writer.write(employee.toRow());
+                writer.write(employee.toRow()+"\n");
             }
             writer.close();
         }

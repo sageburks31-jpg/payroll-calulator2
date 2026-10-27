@@ -51,5 +51,5 @@ public class Employee {
             | employee GrossPay - %.2f
             |__________________________|
             """,getEmployeeId(),
-            getName(),getGrossPay(hoursWorked,payRate));}
+            getName(),getGrossPay(getHoursWorked(),getPayRate()));}
 }
