@@ -11,7 +11,7 @@ public class Main {
 
     public static void write() {
         try {
-            FileWriter writer = new FileWriter("employees.txt");
+            FileWriter writer = new FileWriter("payroll-sept-2023.csv");
             writer.write("id|name|GrossPay\n");
             for (Employee employee: employeesList) {
                 writer.write(employee.toRow()+"\n");
