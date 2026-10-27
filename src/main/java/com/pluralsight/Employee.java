@@ -61,4 +61,12 @@ public class Employee {
     public double getGrossPay(double payRate, double hoursWorked){
         return payRate*hoursWorked;
     }
+
+    public String toRow() {
+        return "";
+    }
+
+    public String toCard() {
+        return "";
+    }
 }
