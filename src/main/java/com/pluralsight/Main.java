@@ -75,6 +75,7 @@ public class Main {
                 answer = "false";
             }
         }
+        scanner.close();
     }
 
     private static void printEmployeeRow() {
