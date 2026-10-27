@@ -43,5 +43,16 @@ public class Employee {
     public String toRow() {
         return getEmployeeId()+"|"+getName()+"|"+getHoursWorked()+"|"+getPayRate();}
 
-    public String toCard() {return "";}
+    public String toCard() {return String.format("""
+            __________________________
+            |                        |
+            | employee ID - %d
+            | employee name - %s
+            | employee hoursWorked - %.2f
+            | employee payRate - %.2f
+            | employee GrossPay - %.2f
+            |________________________|
+            """,getEmployeeId(),
+            getName(),getHoursWorked(),
+            getPayRate(),getGrossPay(hoursWorked,payRate));}
 }
